@@ -4,3 +4,5 @@ git add .
 git commit -m "v${ver}"
 git tag -a ${ver} -m "v${ver}"
 git push origin master --tags
+
+pod trunk push rcsdk.podspec
