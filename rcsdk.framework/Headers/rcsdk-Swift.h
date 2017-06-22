@@ -145,6 +145,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @end
 
 @class UIViewController;
+@class RCDetectResBase;
 
 SWIFT_CLASS("_TtC5rcsdk5RCAPI")
 @interface RCAPI : NSObject
@@ -157,14 +158,55 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL log;)
 + (BOOL)log SWIFT_WARN_UNUSED_RESULT;
 + (void)setLog:(BOOL)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (void)initialWithContext:(UIViewController * _Nonnull)context appid:(NSString * _Nonnull)appid chanid:(NSString * _Nonnull)chanid;
++ (void)initialWithContext:(id _Nonnull)context appid:(NSString * _Nonnull)appid chanid:(NSString * _Nonnull)chanid;
 + (void)run;
 + (void)run:(UIViewController * _Nonnull)context appid:(NSString * _Nonnull)appid chanid:(NSString * _Nonnull)chanid;
 + (void)setHandle:(SWIFT_NOESCAPE NSInteger (^ _Nonnull)(NSInteger, NSString * _Nonnull, NSString * _Nonnull, NSString * _Nonnull, NSString * _Nonnull))handle;
 + (void)stop;
 + (NSInteger)putKeyValue:(NSString * _Nonnull)key value:(id _Nonnull)value SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nullable)getUuid SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nullable)getLocalUuid SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSRoot;)
++ (RCDetectResBase * _Nonnull)RSRoot SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSAttack;)
++ (RCDetectResBase * _Nonnull)RSAttack SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSEmulator;)
++ (RCDetectResBase * _Nonnull)RSEmulator SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSDebugger;)
++ (RCDetectResBase * _Nonnull)RSDebugger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSArea;)
++ (RCDetectResBase * _Nonnull)RSArea SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSBattery;)
++ (RCDetectResBase * _Nonnull)RSBattery SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSMockGPS;)
++ (RCDetectResBase * _Nonnull)RSMockGPS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSGameHack;)
++ (RCDetectResBase * _Nonnull)RSGameHack SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSThreats;)
++ (RCDetectResBase * _Nonnull)RSThreats SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSNetType;)
++ (RCDetectResBase * _Nonnull)RSNetType SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSCarrier;)
++ (RCDetectResBase * _Nonnull)RSCarrier SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSDeviceInfo;)
++ (RCDetectResBase * _Nonnull)RSDeviceInfo SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RCDetectResBase * _Nonnull RSProxyCap;)
++ (RCDetectResBase * _Nonnull)RSProxyCap SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, copy) NSArray<RCDetectResBase *> * _Nonnull mapRS;
 - (void)initDetectResult SWIFT_METHOD_FAMILY(none);
 - (void)updateDetectResult:(NSInteger)eventID :(NSString * _Nonnull)description :(NSString * _Nonnull)conditions :(NSString * _Nonnull)results :(NSString * _Nonnull)details;
+@end
+
+
+SWIFT_CLASS("_TtC5rcsdk15RCDetectResBase")
+@interface RCDetectResBase : NSObject
+- (NSNumber * _Nullable)oc_getEventId SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getDescription SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getConditions SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getResults SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getDetails SWIFT_WARN_UNUSED_RESULT;
+- (void)update:(NSString * _Nonnull)desc :(NSString * _Nonnull)conditions :(NSString * _Nonnull)results :(NSString * _Nonnull)details;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 

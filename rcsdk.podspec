@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   #s.deprecated = true
   s.name             = 'rcsdk'
-  s.version          = '1.4.0'
+  s.version          = '1.4.1'
   s.summary          = 'rcsdk support swift and object-c.'
 
 # This description is used to generate tags and improve search results.
